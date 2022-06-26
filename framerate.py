@@ -4,7 +4,7 @@ from datetime import timedelta
 import cv2
 import numpy as np
 
-SAVING_FRAMES_PER_SECOND = 0.3
+SAVING_FRAMES_PER_SECOND = 2
 
 
 def format_timedelta(td):
