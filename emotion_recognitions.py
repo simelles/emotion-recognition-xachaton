@@ -21,13 +21,28 @@ def main_2(jpg_folder):
             else:
                 a = ''.join(a)
                 emotions.append(a)
-        emotions = max(set(emotions), key = emotions.count)
-        with open('emotions_1.csv', 'a', encoding='utf-8') as file:
+        if emotions:
+            emotions = max(set(emotions), key=emotions.count)
+        with open('prometey.csv', 'a', encoding='utf-8') as file:
             if emotions is None:
                 file.write('None, ')
             else:
+                if emotions == 'angry':
+                    emotions = 0
+                if emotions == 'disgust':
+                    emotions = 1
+                if emotions == 'fear':
+                    emotions = 2
+                if emotions == 'happy':
+                    emotions = 3
+                if emotions == 'sad':
+                    emotions = 4
+                if emotions == 'surprise':
+                    emotions = 5
+                if emotions == 'neutral':
+                    emotions = 6
                 b = jpg_folder.find('-')
-                file.write(f'{jpg_folder[7:b]}.mp4 -- {emotions}\n')
+                file.write(f'{jpg_folder[7:b]}.mp4, {emotions}\n')
 
 
 def main_3(jpg_folder):
